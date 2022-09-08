@@ -43,6 +43,9 @@ import static ml.puredark.hviewer.ui.fragments.SettingFragment.VIDEO_IJKPLAYER;
 import static ml.puredark.hviewer.ui.fragments.SettingFragment.VIDEO_H5PLAYER;
 import static ml.puredark.hviewer.ui.fragments.SettingFragment.VIDEO_OTHERPLAYER;
 
+/**
+ * 视频
+ */
 public class VideoViewerActivity extends BaseActivity {
 
     @BindView(R.id.coordinator_layout)
@@ -59,8 +62,10 @@ public class VideoViewerActivity extends BaseActivity {
 
     // 表示页面加载完毕，允许第一次重定向，加载完毕后阻止用户点击广告的跳转
     private boolean mLoaded = false;
+
     // 表示是否应该拦截视频，当嵌入播放器播放失败则尝试使用WebView播放，此时不拦截视频
     private boolean shouldInterceptVideo = true;
+
     // 使用什么播放器
     private String videoPlayerType = VIDEO_IJKPLAYER;
 
@@ -75,11 +80,11 @@ public class VideoViewerActivity extends BaseActivity {
         // 开启按两次返回退出
         setDoubleBackExitEnabled(true);
 
-        //获取传递过来的Video实例
+        // 获取传递过来的Video实例
         if (HViewerApplication.temp instanceof Video)
             video = (Video) HViewerApplication.temp;
 
-        //获取失败则结束此界面
+        // 获取失败则结束此界面
         if (video == null || TextUtils.isEmpty(video.content)) {
             Toast.makeText(this, "数据错误，请刷新后重试", Toast.LENGTH_SHORT).show();
             finish();
@@ -88,6 +93,7 @@ public class VideoViewerActivity extends BaseActivity {
         HViewerApplication.temp = null;
 
         videoPlayerType = (String) SharedPreferencesUtil.getData(this, SettingFragment.KEY_PREF_VIEW_VIDEO_PLAYER, VIDEO_IJKPLAYER);
+
         if (!VIDEO_IJKPLAYER.equals(videoPlayerType)
                 && !VIDEO_H5PLAYER.equals(videoPlayerType)
                 && !VIDEO_OTHERPLAYER.equals(videoPlayerType))
@@ -102,7 +108,6 @@ public class VideoViewerActivity extends BaseActivity {
             webView.loadUrl(video.content);
         else
             webView.loadData(video.content, "text/html", "utf-8");
-
     }
 
     private void initWebView() {
@@ -124,6 +129,13 @@ public class VideoViewerActivity extends BaseActivity {
         webView.getBackground().setAlpha(0); // 设置填充透明度 范围：0-255
         webView.setWebViewClient(new WebViewClient() {
 
+            /**
+             * 是否重载URL加载
+             *
+             * @param view
+             * @param url
+             * @return
+             */
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Logger.d("VideoViewerActivity", "shouldOverrideUrlLoading:" + url);
@@ -169,12 +181,14 @@ public class VideoViewerActivity extends BaseActivity {
                             runOnUiThread(() -> {
                                 videoPlayer.setVisibility(View.VISIBLE);
                                 boolean isCache = !(url.contains(".m3u8") || url.contains(".sdp"));
-                                //设置播放url
+                                // 设置播放url
                                 videoPlayer.setUp(url, isCache, null, "");
-                                //立即播放
+                                // 立即播放
                                 videoPlayer.startPlayLogic();
+                                // 隐藏进度条
                                 progressBar.setVisibility(View.GONE);
                             });
+
                             return new WebResourceResponse(null, null, null);
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -194,6 +208,7 @@ public class VideoViewerActivity extends BaseActivity {
                 return super.shouldInterceptRequest(view, url);//正常加载
             }
         });
+
         webView.setWebChromeClient(new WebChromeClient() {
             private View myView = null;
             private CustomViewCallback myCallback = null;
@@ -202,7 +217,6 @@ public class VideoViewerActivity extends BaseActivity {
             public void onCloseWindow(WebView window) {
                 super.onCloseWindow(window);
             }
-
 
             @Override
             public boolean onCreateWindow(WebView view, boolean isDialog,

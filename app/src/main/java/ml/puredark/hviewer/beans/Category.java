@@ -2,6 +2,10 @@ package ml.puredark.hviewer.beans;
 
 import ml.puredark.hviewer.ui.dataproviders.AbstractDataProvider;
 
+/**
+ * 分类
+ *
+ */
 public class Category extends AbstractDataProvider.Data {
     public int cid;
     public String title, url;

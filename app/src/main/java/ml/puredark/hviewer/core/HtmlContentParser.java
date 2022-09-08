@@ -14,15 +14,35 @@ import android.view.View;
 import ml.puredark.hviewer.utils.RegexValidateUtil;
 
 /**
+ * 网页内容解析
+ *
  * Created by PureDark on 2016/10/23.
  */
 
 public class HtmlContentParser {
 
+    /**
+     * 获取可点击的超文本标记
+     *
+     * @param context 上下文
+     * @param html
+     * @param sourceUrl
+     * @param imageGetter
+     * @return 字符序列
+     */
     public static CharSequence getClickableHtml(Context context, String html, String sourceUrl, Html.ImageGetter imageGetter) {
         return getClickableHtml(context, html, sourceUrl, imageGetter, null);
     }
 
+    /**
+     *
+     * @param context
+     * @param html
+     * @param sourceUrl
+     * @param imageGetter
+     * @param tagHandler
+     * @return
+     */
     public static CharSequence getClickableHtml(Context context, String html, String sourceUrl, Html.ImageGetter imageGetter, Html.TagHandler tagHandler) {
         Spanned spannedHtml = Html.fromHtml(html, imageGetter, tagHandler);
         SpannableStringBuilder clickableHtmlBuilder = new SpannableStringBuilder(spannedHtml);
@@ -30,9 +50,17 @@ public class HtmlContentParser {
         for (final URLSpan span : urls) {
             setLinkClickable(context, clickableHtmlBuilder, span, sourceUrl);
         }
+
         return clickableHtmlBuilder;
     }
 
+    /**
+     *
+     * @param context
+     * @param clickableHtmlBuilder
+     * @param urlSpan
+     * @param sourceUrl
+     */
     private static void setLinkClickable(Context context, final SpannableStringBuilder clickableHtmlBuilder,
                                          final URLSpan urlSpan, String sourceUrl) {
         int start = clickableHtmlBuilder.getSpanStart(urlSpan);

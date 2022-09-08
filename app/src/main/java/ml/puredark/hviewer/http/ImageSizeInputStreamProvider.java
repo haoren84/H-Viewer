@@ -11,6 +11,8 @@ import java.net.URLConnection;
 import q.rorbin.fastimagesize.net.InputStreamProvider;
 
 /**
+ * 图片大小输入流
+ *
  * Created by PureDark on 2017/3/14.
  */
 

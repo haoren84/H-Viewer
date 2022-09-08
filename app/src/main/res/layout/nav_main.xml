@@ -7,6 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <!--  相对布局   -->
     <RelativeLayout
         android:id="@+id/nav_header_view"
         android:layout_width="match_parent"
@@ -15,12 +16,14 @@
         android:gravity="bottom"
         android:orientation="vertical">
 
+        <!--  放置一张背景图片，来自本地项目资源文件  -->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/polygon_5" />
 
+        <!--  两个线性布局 分别放置一个选择项  -->
         <LinearLayout
             android:id="@+id/btn_add_site"
             android:layout_width="wrap_content"
@@ -29,10 +32,15 @@
             android:layout_alignParentEnd="false"
             android:layout_alignParentBottom="true"
             android:gravity="center">
+
+            <!-- 每个选择项由一个 图标+文本 组成 -->
+            <!-- 图标 -->
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 app:srcCompat="@drawable/ic_add_white"/>
+
+            <!-- 文本 -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,6 +72,7 @@
         </LinearLayout>
     </RelativeLayout>
 
+    <!--  循环布局 用于放置站点列表  -->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_site"
         android:layout_width="match_parent"
@@ -75,6 +84,7 @@
 
     </android.support.v7.widget.RecyclerView>
 
+    <!--  分割线  -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
@@ -84,11 +94,13 @@
         android:layout_marginTop="@dimen/half_margin"
         android:background="@color/gray_60" />
 
+    <!--  线性布局  -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!--    此处使用自定义控件：增加选项点击效果 涟漪    -->
         <com.balysv.materialripple.MaterialRippleLayout
             android:id="@+id/btn_setting"
             android:layout_width="match_parent"
@@ -125,7 +137,6 @@
                     android:textSize="18sp" />
             </LinearLayout>
         </com.balysv.materialripple.MaterialRippleLayout>
-
 
         <com.balysv.materialripple.MaterialRippleLayout
             android:id="@+id/btn_exit"

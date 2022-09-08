@@ -4,6 +4,10 @@ import ml.puredark.hviewer.ui.dataproviders.AbstractDataProvider;
 
 import static ml.puredark.hviewer.beans.DownloadItemStatus.STATUS_WAITING;
 
+/**
+ * 视频
+ *
+ */
 public class Video extends AbstractDataProvider.Data {
     public int vid;
     public String thumbnail, content;

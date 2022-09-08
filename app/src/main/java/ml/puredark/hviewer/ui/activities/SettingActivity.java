@@ -14,6 +14,9 @@ import ml.puredark.hviewer.R;
 import ml.puredark.hviewer.helpers.MDStatusBarCompat;
 import ml.puredark.hviewer.ui.fragments.SettingFragment;
 
+/**
+ * 设置
+ */
 public class SettingActivity extends BaseActivity {
 
     @BindView(R.id.coordinator_layout)
@@ -47,7 +50,6 @@ public class SettingActivity extends BaseActivity {
         setReturnButton(btnReturn);
 
         tvTitle.setText("设置");
-
     }
 
     @OnClick(R.id.btn_return)
@@ -67,5 +69,4 @@ public class SettingActivity extends BaseActivity {
     public void onBackPressed() {
         back();
     }
-
 }

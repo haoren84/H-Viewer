@@ -122,12 +122,30 @@ import static ml.puredark.hviewer.ui.fragments.SettingFragment.KEY_CUSTOM_HEADER
 import static ml.puredark.hviewer.ui.fragments.SettingFragment.KEY_FIRST_TIME;
 import static ml.puredark.hviewer.ui.fragments.SettingFragment.KEY_PREF_DOWNLOAD_PATH;
 
-
+/**
+ *
+ */
 public class MainActivity extends BaseActivity {
+
+    /**
+     * 添加站点
+     */
     private static int RESULT_ADD_SITE = 1;
+    /**
+     * 修改站点
+     */
     private static int RESULT_MODIFY_SITE = 2;
+    /**
+     * 登录
+     */
     private static int RESULT_LOGIN = 3;
+    /**
+     * 站点市场
+     */
     private static int RESULT_SITE_MARKET = 4;
+    /**
+     * 设置
+     */
     private static int RESULT_SETTING = 5;
     private static int RESULT_RDSQ = 6;
     private static int RESULT_SET_HEADER_IMAGE = 7;
@@ -237,11 +255,13 @@ public class MainActivity extends BaseActivity {
             searchView.setLayoutParams(lp);
         }
 
-        //获取下载目录权限
+        // 获取下载目录权限
         if ((boolean) SharedPreferencesUtil.getData(this, KEY_FIRST_TIME, true)) {
-            initSetDefultDownloadPath();
+            // 设置默认下载路径
+            setDefaultDownloadPath();
         }
 
+        // 长按监听
         backdrop.setOnLongClickListener(v -> {
             String[] options = new String[]{"自定义", "随机图片"};
             new AlertDialog.Builder(this)
@@ -258,6 +278,7 @@ public class MainActivity extends BaseActivity {
                             intent.addCategory(Intent.CATEGORY_OPENABLE);
                             startActivityForResult(intent, RESULT_SET_HEADER_IMAGE);
                         } else if (i == 1) {
+                            // 获取必应图片
                             getBingImage();
                         }
                     })
@@ -273,16 +294,22 @@ public class MainActivity extends BaseActivity {
 
         initDrawer();
 
+        // 初始化搜索建议
         initSearchSuggestions();
 
+        // 初始化搜索
         initSearchView();
 
+        // 初始化导航
         initNavCategories();
 
+        // 初始化导航站点
         initNavSites();
 
+        // 初始化底部
         initBottomSheet();
 
+        // 更新管理
         UpdateManager.checkUpdate(this);
     }
 
@@ -884,6 +911,7 @@ public class MainActivity extends BaseActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
+
         behavior.setBottomSheetCallback(new ViewPagerBottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
@@ -970,7 +998,6 @@ public class MainActivity extends BaseActivity {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivityForResult(intent, RESULT_LOGIN);
         }
-
     }
 
     @Override
@@ -987,7 +1014,7 @@ public class MainActivity extends BaseActivity {
         return true;
     }
 
-    private void initSetDefultDownloadPath() {
+    private void setDefaultDownloadPath() {
         //下载路径
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             new AlertDialog.Builder(this)

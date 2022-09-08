@@ -22,6 +22,9 @@ import ml.puredark.hviewer.ui.activities.BaseActivity;
 import tv.danmaku.ijk.media.player.IjkLibLoader;
 
 /**
+ *
+ *
+ *
  * Created by PureDark on 2017/4/1.
  */
 

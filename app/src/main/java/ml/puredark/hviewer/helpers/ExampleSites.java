@@ -13,6 +13,8 @@ import ml.puredark.hviewer.beans.TagRule;
 import ml.puredark.hviewer.beans.VideoRule;
 
 /**
+ * 站点示例
+ *
  * Created by PureDark on 2016/9/21.
  */
 

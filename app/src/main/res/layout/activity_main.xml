@@ -6,8 +6,10 @@
     android:layout_height="match_parent"
     tools:openDrawer="end">
 
+    <!-- 抽屉布局 主体部分 进入应用看到的布局-->
     <include layout="@layout/content_main" />
 
+    <!--  抽屉布局 左侧导航 左边由外向内滑动或点击左上角控件可见 -->
     <include
         android:id="@+id/nav_main"
         layout="@layout/nav_main"
@@ -16,6 +18,7 @@
         android:clickable="true"
         android:layout_gravity="start" />
 
+    <!-- 抽屉布局 左侧导航 菜单选择项 分类二级菜单-->
     <include
         android:id="@+id/nav_categories"
         layout="@layout/nav_categories"

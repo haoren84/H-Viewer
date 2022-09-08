@@ -5,6 +5,8 @@ import java.util.List;
 import ml.puredark.hviewer.beans.Tag;
 
 /**
+ * 抽象类
+ *
  * Created by PureDark on 2016/10/12.
  */
 
@@ -19,5 +21,4 @@ public abstract class AbstractTagHolder {
     public abstract List<Tag> getTags(int sid);
 
     public abstract boolean tagExist(int sid, Tag item);
-
 }

@@ -10,6 +10,8 @@ import ml.puredark.hviewer.R;
 import ml.puredark.hviewer.ui.fragments.LockMethodFragment;
 
 /**
+ * 解锁方法
+ *
  * Created by PureDark on 2016/10/9.
  */
 

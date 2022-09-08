@@ -1,6 +1,8 @@
 package ml.puredark.hviewer.configs;
 
 /**
+ * 配置
+ *
  * Created by PureDark on 2016/9/27.
  */
 
@@ -26,6 +28,4 @@ public class UrlConfig {
         urls[2] = libijksdlUrl.replace("<ABIS>", abi);
         return urls;
     }
-
-
 }

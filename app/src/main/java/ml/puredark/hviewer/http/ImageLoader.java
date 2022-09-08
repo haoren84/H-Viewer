@@ -37,6 +37,8 @@ import ml.puredark.hviewer.utils.MyThumbnailUtils;
 import static ml.puredark.hviewer.HViewerApplication.getGson;
 
 /**
+ * 图片加载
+ *
  * Created by PureDark on 2016/9/2.
  */
 

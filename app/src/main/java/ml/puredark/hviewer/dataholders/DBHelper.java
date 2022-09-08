@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import ml.puredark.hviewer.helpers.Logger;
 
+/**
+ *
+ */
 public class DBHelper {
     private final static String dbName = "hviewer.db";
     private SQLiteHelper mSqliteHelper = null;
@@ -104,7 +107,7 @@ public class DBHelper {
             super(context, name, factory, version);
         }
 
-        //创建SQLiteOpenHelper的子类，并重写onCreate及onUpgrade方法。
+        // 创建SQLiteOpenHelper的子类，并重写onCreate及onUpgrade方法。
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE TABLE `sites`(`sid` integer primary key autoincrement, `title`, `indexUrl`, `galleryUrl`, `json` text, `index` integer, `gid` integer)");

@@ -41,11 +41,18 @@ import ml.puredark.hviewer.utils.StringEscapeUtils;
 import static java.util.regex.Pattern.DOTALL;
 
 /**
+ * 规则解析
+ *
  * Created by PureDark on 2016/8/9.
  */
 
 public class RuleParser {
 
+    /**
+     *
+     * @param url
+     * @return 键值对
+     */
     public static Map<String, String> parseUrl(String url) {
         Map<String, String> map = new HashMap<>();
         if (TextUtils.isEmpty(url))
@@ -68,10 +75,29 @@ public class RuleParser {
         return map;
     }
 
+    /**
+     *
+     * @param url
+     * @param page
+     * @param idCode
+     * @param keyword
+     * @param objs
+     * @return
+     */
     public static String parseUrl(String url, int page, String idCode, String keyword, Object[] objs){
         return parseUrl(url, page, idCode, keyword, objs, false);
     }
 
+    /**
+     *
+     * @param url
+     * @param page
+     * @param idCode
+     * @param keyword
+     * @param objs
+     * @param getJsonParams
+     * @return
+     */
     public static String parseUrl(String url, int page, String idCode, String keyword, Object[] objs, boolean getJsonParams) {
         Map<String, String> matchResult = RuleParser.parseUrl(url);
         if(getJsonParams && !matchResult.containsKey("json"))
@@ -163,6 +189,11 @@ public class RuleParser {
         return result;
     }
 
+    /**
+     *
+     * @param string
+     * @return
+     */
     public static boolean isJson(String string) {
         if (string == null)
             return false;

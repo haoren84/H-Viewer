@@ -6,6 +6,9 @@ import ml.puredark.hviewer.HViewerApplication;
 import ml.puredark.hviewer.R;
 import okhttp3.Request;
 
+/**
+ * 构建者
+ */
 public class HRequestBuilder extends Request.Builder {
     private boolean disableHProxy = false;
 

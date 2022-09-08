@@ -4,6 +4,9 @@ import ml.puredark.hviewer.HViewerApplication;
 import ml.puredark.hviewer.ui.fragments.SettingFragment;
 import ml.puredark.hviewer.utils.SharedPreferencesUtil;
 
+/**
+ * 代理
+ */
 public class HProxy {
     //    private static final String PROXY_DEFAULT_SERVER = "https://h-viewer-proxy.herokuapp.com";
     private static final String PROXY_DEFAULT_SERVER = null;

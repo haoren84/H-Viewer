@@ -30,6 +30,9 @@ import ml.puredark.hviewer.helpers.MDStatusBarCompat;
 import ml.puredark.hviewer.helpers.SitePropViewHolder;
 import ml.puredark.hviewer.http.HViewerHttpClient;
 
+/**
+ * 添加站点
+ */
 
 public class AddSiteActivity extends BaseActivity {
 

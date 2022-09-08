@@ -2,6 +2,9 @@ package ml.puredark.hviewer.beans;
 
 import java.lang.reflect.Field;
 
+/**
+ * 选择器
+ */
 public class Selector {
     public String selector, path, fun, param, regex, replacement;
 

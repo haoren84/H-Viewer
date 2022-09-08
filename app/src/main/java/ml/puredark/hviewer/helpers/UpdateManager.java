@@ -37,6 +37,9 @@ import ml.puredark.hviewer.http.DownloadUtil;
 import ml.puredark.hviewer.http.HViewerHttpClient;
 import ml.puredark.hviewer.ui.activities.BaseActivity;
 
+/**
+ * 更新管理
+ */
 public class UpdateManager {
 
     private Context mContext;

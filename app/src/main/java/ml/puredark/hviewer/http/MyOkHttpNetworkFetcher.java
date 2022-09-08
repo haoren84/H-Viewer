@@ -31,6 +31,8 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 /**
+ * 访问者
+ *
  * Created by PureDark on 2016/8/27.
  */
 public class MyOkHttpNetworkFetcher extends

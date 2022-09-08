@@ -2,6 +2,9 @@ package ml.puredark.hviewer.helpers;
 
 import android.graphics.Bitmap;
 
+/**
+ *
+ */
 public class FastBlur {
 
     public static Bitmap doBlur(Bitmap sentBitmap, int radius, boolean canReuseInBitmap) {

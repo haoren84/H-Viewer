@@ -5,6 +5,10 @@ import java.util.List;
 
 import ml.puredark.hviewer.libraries.advrecyclerview.common.data.AbstractExpandableDataProvider;
 
+/**
+ * 收藏
+ *
+ */
 public class Collection extends AbstractExpandableDataProvider.ChildData {
     public int cid;
     public String idCode = "";

@@ -67,8 +67,11 @@ public class HViewerApplication extends SwipeBackApplication {
         return gson;
     }
 
+    // 获取版本名
     public static String getVersionName() {
+        // 包管理
         PackageManager packageManager = mContext.getPackageManager();
+        // 包信息
         PackageInfo packInfo;
         try {
             packInfo = packageManager.getPackageInfo(mContext.getPackageName(), 0);
@@ -76,7 +79,10 @@ public class HViewerApplication extends SwipeBackApplication {
             e.printStackTrace();
             return "0.0.0";
         }
+
+        // 版本
         String version = packInfo.versionName;
+
         return version;
     }
 
@@ -96,7 +102,6 @@ public class HViewerApplication extends SwipeBackApplication {
         return false;
     }
 
-
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     @SuppressWarnings("unused")
     @Override
@@ -105,19 +110,24 @@ public class HViewerApplication extends SwipeBackApplication {
 
         mContext = this;
 
+        // 初始化图片框架
         Fresco.initialize(this, ImagePipelineConfigBuilder.getDefaultImagePipelineConfig(this));
 
+        // 初始化
         Stetho.initializeWithDefaults(this);
 
+        // 搜索历史
         searchHistoryHolder = new SearchHistoryHolder(this);
         searchSuggestionHolder = new SearchSuggestionHolder(this);
 
+        // 启动下载服务
         startService(new Intent(this, DownloadService.class));
 
         MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL);
         MobclickAgent.openActivityDurationTrack(false);
         MobclickAgent.setCatchUncaughtExceptions(false);
 
+        // 初始化
         DNSCache.Init(this);
 
         CrashHandler crashHandler = CrashHandler.getInstance();
@@ -155,8 +165,5 @@ public class HViewerApplication extends SwipeBackApplication {
                 .setCacheTime(CacheEntity.CACHE_NEVER_EXPIRE)
                 .setRetryCount(3)
                 .setCertificates();
-
     }
-
-
 }

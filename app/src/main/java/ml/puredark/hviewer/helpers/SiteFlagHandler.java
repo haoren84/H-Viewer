@@ -24,6 +24,8 @@ import ml.puredark.hviewer.http.ImageLoader;
 import ml.puredark.hviewer.ui.adapters.PictureVideoAdapter.PictureViewHolder;
 
 /**
+ * 站点标识
+ *
  * Created by PureDark on 2016/9/5.
  */
 
