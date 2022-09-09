@@ -18,15 +18,15 @@ ext {
 android {
     signingConfigs {
         release{
-            Properties properties = new Properties()
-            InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream() ;
-            properties.load( inputStream )
-
-            storeFile file(properties["storeFile"])
-            storePassword properties["storePassword"]
-            keyAlias properties["keyAlias"]
-            keyPassword properties["keyPassword"]
-            v2SigningEnabled = false
+//            Properties properties = new Properties()
+//            InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream() ;
+//            properties.load( inputStream )
+//
+//            storeFile file(properties["storeFile"])
+//            storePassword properties["storePassword"]
+//            keyAlias properties["keyAlias"]
+//            keyPassword properties["keyPassword"]
+//            v2SigningEnabled = false
         }
     }
     compileSdkVersion 25
@@ -77,11 +77,11 @@ android {
         abortOnError false
     }
     productFlavors {
-        coolapk {}
-        github {}
-        productFlavors.all { flavor ->
-            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
-        }
+//        coolapk {}
+//        github {}
+//        productFlavors.all { flavor ->
+//            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+//        }
     }
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES.txt'
@@ -120,10 +120,7 @@ andResGuard {
     }
 }
 
-
 repositories {
-    mavenCentral()
-    jcenter()
     maven { url "https://jitpack.io" }
     maven { url "http://dl.bintray.com/glomadrian/maven" }
     maven { url 'http://guardian.github.com/maven/repo-releases' }
