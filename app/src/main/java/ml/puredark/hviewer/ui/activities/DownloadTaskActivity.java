@@ -26,7 +26,6 @@ import android.widget.TextView;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
-import com.umeng.analytics.MobclickAgent;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
@@ -338,8 +337,6 @@ public class DownloadTaskActivity extends BaseActivity {
             myClipboard.setPrimaryClip(ClipData.newPlainText("url", url));
             showSnackBar("没有可调用的浏览器，网址已复制到剪贴板");
         }
-        // 统计打开浏览器访问次数
-        MobclickAgent.onEvent(HViewerApplication.mContext, "SwitchToBrowser");
     }
 
     @OnClick(R.id.fab_favor)
@@ -351,8 +348,6 @@ public class DownloadTaskActivity extends BaseActivity {
         }else{
             showSnackBar("图册已收藏！");
         }
-        // 统计收藏次数
-        MobclickAgent.onEvent(HViewerApplication.mContext, "FavorCollection");
     }
 
     @Override

@@ -23,7 +23,6 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.request.GetRequest;
 import com.lzy.okserver.download.DownloadInfo;
 import com.lzy.okserver.listener.DownloadListener;
-import com.umeng.analytics.MobclickAgent;
 
 import java.io.File;
 import java.io.IOException;
@@ -200,8 +199,6 @@ public class DownloadService extends Service {
                 holder.updateDownloadTasks(task);
                 Intent intent = new Intent(ON_COMPLETE);
                 sendBroadcast(intent);
-                // 统计下载完成次数
-                MobclickAgent.onEvent(mContext, "DownloadTaskCompleted");
 
                 // 记录信息，以求恢复删除了的下载记录
                 String rootPath = task.path.substring(0, task.path.lastIndexOf("/"));
@@ -424,8 +421,6 @@ public class DownloadService extends Service {
                 holder.updateDownloadTasks(task);
                 Intent intent = new Intent(ON_COMPLETE);
                 sendBroadcast(intent);
-                // 统计下载完成次数
-                MobclickAgent.onEvent(mContext, "DownloadTaskCompleted");
 
                 // 记录信息，以求恢复删除了的下载记录
                 String rootPath = task.path.substring(0, task.path.lastIndexOf("/"));

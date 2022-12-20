@@ -39,8 +39,8 @@ import okhttp3.Response;
  *
  */
 public class HViewerHttpClient {
-    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-    public static final MediaType STEAM = MediaType.parse("application/octet-stream");
+    private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    private static final MediaType STEAM = MediaType.parse("application/octet-stream");
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static DownloadUtil downloadUtil;
     private static HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, null, null, null);

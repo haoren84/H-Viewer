@@ -59,7 +59,6 @@ import com.h6ah4i.android.widget.advrecyclerview.expandable.RecyclerViewExpandab
 import com.h6ah4i.android.widget.advrecyclerview.utils.WrapperAdapterUtils;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.rengwuxian.materialedittext.MaterialEditText;
-import com.umeng.analytics.MobclickAgent;
 
 import java.io.File;
 import java.io.IOException;
@@ -215,9 +214,6 @@ public class MainActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         setContainer(coordinatorLayout);
         setDrawerLayout(drawer);
-
-        // 关闭默认统计，手动进行Fragment统计
-        setAnalyze(false);
 
         // 关闭边缘滑动返回
         setSwipeBackEnable(false);
@@ -1198,13 +1194,11 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onResume(this);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
         mRecyclerViewDragDropManager.cancelDrag();
     }
 

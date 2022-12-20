@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <application
         android:name=".HViewerApplication"
@@ -21,18 +20,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:theme">
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="57ea5bcd67e58e5bdf0022af" />
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="${UMENG_CHANNEL_VALUE}" />
 
         <activity
             android:name=".ui.activities.LockActivity"
             android:launchMode="singleTask"
             android:noHistory="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -46,6 +40,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
         </activity>
+
         <activity
             android:name=".ui.activities.CollectionActivity"
             android:screenOrientation="portrait" />
@@ -95,7 +90,8 @@
             android:name=".ui.activities.DownloadActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name=".download.DownloadService">
+        <service android:name=".download.DownloadService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="ml.puredark.hviewer.services.DownloadService" />
             </intent-filter>

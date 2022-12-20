@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatDelegate;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
-import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.google.gson.Gson;
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.Option;
@@ -25,7 +24,6 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
 import com.sina.util.dnscache.DNSCache;
-import com.umeng.analytics.MobclickAgent;
 
 import java.util.EnumSet;
 import java.util.Set;
@@ -37,7 +35,6 @@ import ml.puredark.hviewer.dataholders.SearchHistoryHolder;
 import ml.puredark.hviewer.dataholders.SearchSuggestionHolder;
 import ml.puredark.hviewer.download.DownloadService;
 import ml.puredark.hviewer.libraries.swipeback.common.SwipeBackApplication;
-import okhttp3.OkHttpClient;
 
 public class HViewerApplication extends SwipeBackApplication {
     /**
@@ -122,10 +119,6 @@ public class HViewerApplication extends SwipeBackApplication {
 
         // 启动下载服务
         startService(new Intent(this, DownloadService.class));
-
-        MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL);
-        MobclickAgent.openActivityDurationTrack(false);
-        MobclickAgent.setCatchUncaughtExceptions(false);
 
         // 初始化
         DNSCache.Init(this);

@@ -50,7 +50,6 @@ import com.facebook.drawee.view.DraweeView;
 import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.ImageInfo;
-import com.umeng.analytics.MobclickAgent;
 
 import net.rdrei.android.dirchooser.DirectoryChooserConfig;
 import net.rdrei.android.dirchooser.DirectoryChooserFragment;
@@ -674,7 +673,6 @@ public class PictureViewerActivity extends BaseActivity {
                 shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
                 shareIntent.setType("image/*");
                 startActivity(Intent.createChooser(shareIntent, "将图片分享到"));
-                MobclickAgent.onEvent(this, "ShareSinglePicture");
             } else if (action == ACTION_SHOW_INFO) {
                 Uri uri = Uri.parse(url);
                 viewHolder.tvImageType.setText(FileUtils.getMimeType(this, uri));
@@ -785,11 +783,8 @@ public class PictureViewerActivity extends BaseActivity {
                     shareIntent.putExtra(Intent.EXTRA_STREAM, documentFile.getUri());
                     shareIntent.setType("image/*");
                     startActivity(Intent.createChooser(shareIntent, "将图片分享到"));
-                    MobclickAgent.onEvent(this, "ShareSinglePicture");
                 } else {
                     showSnackBar("保存成功");
-                    // 统计保存单图次数
-                    MobclickAgent.onEvent(this, "SaveSinglePicture");
                 }
             } else {
                 showSnackBar("保存失败，请重新设置下载目录");

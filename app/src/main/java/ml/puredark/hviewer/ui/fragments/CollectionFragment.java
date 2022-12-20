@@ -18,7 +18,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AbsListView;
 
-import com.umeng.analytics.MobclickAgent;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.io.UnsupportedEncodingException;
@@ -367,8 +366,6 @@ public class CollectionFragment extends MyFragment {
         super.onResume();
         if (clickPos >= 0 && clickPos < adapter.getItemCount())
             adapter.notifyItemChanged(clickPos);
-        if (site != null)
-            MobclickAgent.onPageStart(site.title);
     }
 
     @Override
@@ -376,8 +373,6 @@ public class CollectionFragment extends MyFragment {
         super.onPause();
         if (clickPos >= 0 && clickPos < adapter.getItemCount())
             adapter.notifyItemChanged(clickPos);
-        if (site != null)
-            MobclickAgent.onPageEnd(site.title);
     }
 
     @Override

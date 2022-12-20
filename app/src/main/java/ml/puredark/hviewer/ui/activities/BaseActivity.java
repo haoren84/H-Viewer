@@ -9,7 +9,6 @@ import android.content.pm.ShortcutManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -26,7 +25,6 @@ import android.widget.ImageView;
 
 import com.github.clans.fab.FloatingActionMenu;
 import com.nineoldandroids.animation.Animator;
-import com.umeng.analytics.MobclickAgent;
 
 import ml.puredark.hviewer.R;
 import ml.puredark.hviewer.dataholders.DownloadTaskHolder;
@@ -63,8 +61,6 @@ public class BaseActivity extends SwipeBackActivity implements AppBarLayout.OnOf
     //允许退出当前Activity
     private boolean allowExit = true;
 
-    //是否开始页面统计
-    private boolean analyze = true;
     private int lastOffset;
 
     @Override
@@ -110,10 +106,6 @@ public class BaseActivity extends SwipeBackActivity implements AppBarLayout.OnOf
 
     protected void setDownloadReceiver(DownloadReceiver receiver) {
         this.receiver = receiver;
-    }
-
-    protected void setAnalyze(boolean analyze) {
-        this.analyze = analyze;
     }
 
     public boolean isInOneHandMode() {
@@ -262,10 +254,7 @@ public class BaseActivity extends SwipeBackActivity implements AppBarLayout.OnOf
     @Override
     public void onResume() {
         super.onResume();
-        if (analyze) {
-            MobclickAgent.onPageStart(this.getClass().getSimpleName());
-            MobclickAgent.onResume(this);
-        }
+
         IntentFilter downloadIntentFilter = new IntentFilter();
         downloadIntentFilter.addAction(DownloadService.ON_START);
         downloadIntentFilter.addAction(DownloadService.ON_PAUSE);
@@ -280,10 +269,7 @@ public class BaseActivity extends SwipeBackActivity implements AppBarLayout.OnOf
     @Override
     public void onPause() {
         super.onPause();
-        if (analyze) {
-            MobclickAgent.onPageEnd(this.getClass().getSimpleName());
-            MobclickAgent.onPause(this);
-        }
+
         unregisterReceiver(receiver);
         if (appBar != null)
             appBar.removeOnOffsetChangedListener(this);

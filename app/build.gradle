@@ -141,7 +141,7 @@ dependencies {
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
     // umeng analytics
-    implementation 'com.umeng.analytics:analytics:6.1.4'
+    //implementation 'com.umeng.analytics:analytics:6.1.4'
     // material widget
     implementation('com.github.vajro:MaterialDesignLibrary:1.6') {
         exclude group: 'com.nineoldandroids', module: 'library'
@@ -235,7 +235,9 @@ dependencies {
     // video player
     //compile 'com.github.CarGuo:GSYVideoPlayer:v1.6.1'
     implementation 'com.github.PureDark:GSYVideoPlayer:ddcf05191e'
-
+    
+    implementation "io.reactivex.rxjava2:rxjava:2.1.17"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     // unlock methods, such as pin, fingerprint, etc
     implementation 'com.andrognito.pinlockview:pinlockview:2.1.0'
     implementation 'com.zwh:RxFingerPrinter:1.0.1'

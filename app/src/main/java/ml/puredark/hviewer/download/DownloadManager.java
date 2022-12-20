@@ -10,8 +10,6 @@ import android.os.IBinder;
 import android.support.v4.provider.DocumentFile;
 import android.support.v4.util.Pair;
 
-import com.umeng.analytics.MobclickAgent;
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -162,8 +160,6 @@ public class DownloadManager {
         task.path = path;
         holder.addDownloadTask(task);
         downloadingTasks.add(task);
-        // 统计添加下载次数
-        MobclickAgent.onEvent(HViewerApplication.mContext, "DownloadTaskCreated");
         if (!isDownloading())
             startDownload(task);
         return true;
