@@ -1,6 +1,5 @@
 package ml.puredark.hviewer.http;
 
-import android.os.Environment;
 import android.support.annotation.NonNull;
 
 import java.io.File;
